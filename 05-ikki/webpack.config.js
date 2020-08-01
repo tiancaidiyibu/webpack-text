@@ -185,6 +185,7 @@ const  config = {
     new webpack.HotModuleReplacementPlugin(),
   
     // new BundleAnalyzerPlugin(),  // 分析webpack打包后的模块依赖关系
+
     // 分析dll中都包含的库，（先分析入口文件中的依赖，然后去的dll下的manifest文件找是否有对于的模块，有点话走缓存的文件（库的代码在react.dll.js里面））
     // react.dll.js用于html模板里面(可以理解为里面存取了相对应的模块内容)
     // manifest文件本质上是一个第三方库的映射（库的名称，模块名称，模块id，模块保存位置）

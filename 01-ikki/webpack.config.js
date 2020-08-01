@@ -16,10 +16,11 @@ module.exports = {
     // entry:{
     //     main:'./src/index.js', //默认值 等价于entry:'./src/index.js',
     // },
-    // entry:{  //多入口必须对应多出口  1个chunk（代码块，一个chunk可以是多个模块组成）对应一个bundle(资源文件)
+    // entry:{  //多入口必须对应多出口  1个chunk（代码块，一个chunk可以由多个module组成）对应一个bundle(资源文件)
     //     index:'./src/index.js', 
     //     other:'./src/other.js', 
     // },
+    
     // 出口，
     output:{
         // 构建的资源放哪里,必须是绝对路径  默认是dist

@@ -3,7 +3,7 @@ const path = require("path");
 
 // 引入插件
 const htmlWebpackPlugin = require("html-webpack-plugin"); //打包html到bundle资源中
-const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //dist目录每次打包都更新
+const { CleanWebpackPlugin } = require("clean-webpack-plugin"); //出口目录每次打包都更新
 const MiniCssExtractPlugin = require("mini-css-extract-plugin"); //抽离css
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin"); //压缩css
 
@@ -89,6 +89,7 @@ module.exports = {
         test: /\.js$/,
         include:path.resolve(__dirname,'./src'),
         // exclude:/node_modules/, //排除node_modules目录
+
         use:{
           loader:'babel-loader',  //babel-loader是webpack 与 babel的通信桥梁，不会做把es6转成es5的⼯作，这部分⼯作需要⽤到@babel/preset-env来做
           // babel插件分两种：1.语法转换，2.语法分析
@@ -120,7 +121,7 @@ module.exports = {
         }
       }
     ],
-  },
+  },  
   plugins:[
     new CleanWebpackPlugin(),
     //将bundle中的css提取到独立的文件，名字是按照plugins中配置的filename(对HMR热更新很不友好)，在开发模式下建议不开启
