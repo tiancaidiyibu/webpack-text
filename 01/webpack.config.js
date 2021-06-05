@@ -8,11 +8,11 @@ module.exports = {
   //context: process.cwd(),
   //入口 执行构建的入口 项目入口 字符串 数组 对象
   entry: "./src/index.js",
-  //   entry: ["./src/index.js", "./src/other.js"],
-  //   entry: {
-  //     index: "./src/index.js",
-  //     other: "./src/other.js",
-  //   },
+    // entry: ["./src/index.js", "./src/other.js"],
+    // entry: {
+    //   index: "./src/index.js",
+    //   other: "./src/other.js",
+    // },
   //出口
   output: {
     //构建的文件资源放在哪？必须是绝对路径
