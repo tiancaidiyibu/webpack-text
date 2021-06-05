@@ -10,18 +10,18 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
     // 上下文 项目打包的相对路径  必须是绝对路径 默认值是 process.cwd()
     context:process.cwd(),
-    // 入口，构建项目的入口  支持字符串，数组，对象三种类型
+    // 打包入口，构建项目的入口  支持字符串，数组，对象三种类型
     entry:'./src/index.js',
     // entry:['./src/index.js','./src/other.js'], //不是多入口， webpack会⾃动⽣成另外⼀个⼊⼝模块，并将数组中的每个指定的模块加载进来，并将最后⼀个模块的module.exports作为⼊⼝模块的module.exports导出。
     // entry:{
     //     main:'./src/index.js', //默认值 等价于entry:'./src/index.js',
     // },
-    // entry:{  //多入口必须对应多出口  1个chunk（代码块，一个chunk可以由多个module组成）对应一个bundle(资源文件)
+    // entry:{  //多入口必须对应多出口  1个chunk（代码块，一个chunk可以由多个module组成）对应一个bundle(打包构建生产的资源文件)
     //     index:'./src/index.js', 
     //     other:'./src/other.js', 
     // },
     
-    // 出口，
+    // 打包出口，
     output:{
         // 构建的资源放哪里,必须是绝对路径  默认是dist
         path:path.resolve(__dirname,'./build'),
@@ -39,6 +39,7 @@ module.exports = {
     },
 
     // 模式 指定当前的构建环境
+    // 默认是：production(线上，生产)
     mode:'development',
 
 
