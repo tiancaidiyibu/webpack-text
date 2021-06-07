@@ -18,7 +18,7 @@ module.exports = {
     path: path.resolve(__dirname, "./dist"),
     filename: "[name].js",
     // CDN通过将资源部署到世界各地，使得⽤户可以就近访问资源，加快访问速度。要接⼊CDN，需要把⽹⻚的静态资源上传到CDN服务上，在访问这些资源时，使⽤CDN服务提供的URL。
-    // publicPath: '//cdnURL.com', //指定存放JS⽂件的CDN地址
+    // publicPath: '//cdnURL.com', //指定存放JS⽂件的CDN地址,
   },
   module: {
     // loader是一个消耗性能的大户，缩⼩⽂件范围 Loader
@@ -45,7 +45,7 @@ module.exports = {
           // 在css-loader前面执行
           // 需要插件机制
           {
-            loader:'postcss-loader'  //样式⾃动添加前缀，例如ie，谷歌等等 display: -webkit-box; display: -ms-flexbox;
+            loader:'postcss-loader'  //为了浏览器支持css3，必须给样式⾃动添加前缀，例如ie，谷歌等等 display: -webkit-box; display: -ms-flexbox;
           },
           'less-loader' //将less后缀名的文件转化成css格式
         ],
@@ -80,6 +80,7 @@ module.exports = {
             outputPath:'images/',
             // ⼩于1024*12，才转换成base64，放到bundle中了，不会放到images文件夹中
             // 推荐小体积的图片资源转出base64
+            limit:1024*12
               //单位是字节 1024=1kb
           }
         }
@@ -92,6 +93,7 @@ module.exports = {
 
         use:{
           loader:'babel-loader',  //babel-loader是webpack 与 babel的通信桥梁，不会做把es6转成es5的⼯作，这部分⼯作需要⽤到@babel/preset-env来做
+          // @babel/core是包含了babel的核心api，也就是babel的基础库(babel依赖他进行ast的转换)
           // babel插件分两种：1.语法转换，2.语法分析
           // options:可以挪到单独的babelrc配置文件
           // options:{
@@ -101,7 +103,7 @@ module.exports = {
           //       "@babel/preset-env",
           //       {
           //         // entry: 需要在 webpack 的⼊⼝⽂件⾥ import "@babel/polyfill" ⼀次。 babel 会根据你的使⽤情况导⼊语法垫⽚，没有使⽤的功能不会被导⼊相应的垫⽚。
-          //         // usage: 不需要import ，全⾃动检测，但是要安装 @babel/polyfill 。（试验阶段）
+          //         // usage: 不需要import ，全⾃动检测，但是要安装 @babel/polyfill 。（试验阶段,推荐使用）
           //         // false: 如果你 import"@babel/polyfill" ，它不会排除掉没有使⽤的垫⽚，程序体积会庞⼤。(不推荐)
           //         // 缺点：polyfill垫片会污染全局对象，因为垫片是将规范（例如promise）放到全局对象而已（对于做开源UI库，组价库，工具库）
           //         useBuiltIns: "usage",//按需加载字段，对应入口文件的@babel/polyfill
@@ -166,12 +168,12 @@ module.exports = {
     contentBase: "./dist", //设置路径(也支持绝对路径)，默认打开dist下面的index.html文件
     open: true,  //自动打开默认浏览器窗口
     port: 8081, //设置端口
-    proxy:{  //解决dev环境开发mock数据跨域问题
+    proxy:{  //代理：解决dev环境开发数据跨域问题
       '/api':{
         target:'http://localhost:3001'
       }
     },
-    // mock-server:加载WebpackDevServer中间件之前的钩子（hooks） 钩入了express服务
+    // mock-server:解决本地开发mock问题 加载WebpackDevServer中间件之前的钩子（hooks） 钩入了express服务
     before(app,server){
       app.get('/api/mock.json',(req,res)=>{
         res.json({

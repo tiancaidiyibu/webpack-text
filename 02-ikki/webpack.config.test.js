@@ -20,7 +20,7 @@ module.exports = (env) => {
     }
 
 
-    // 如果外部传去env.production   是生成
+    // 如果外部传去env.production   是生产
     // 如果外部传去env.XXX   是开发
     // if(env && env.production){
     //     return  merge(baseConfig,proConfig)

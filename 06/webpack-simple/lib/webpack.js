@@ -38,8 +38,10 @@ module.exports = class webpack {
     this.file(obj);
   }
   parse(entryFile) {
+    //entryFile 入口路径
+    // content得到index.js内容
     const content = fs.readFileSync(entryFile, "utf-8");
-
+    // 听过@bable/parser这个loader中的parser.parse来得到ast
     const ast = parser.parse(content, {
       sourceType: "module",
     });

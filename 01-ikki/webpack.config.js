@@ -38,7 +38,7 @@ module.exports = {
         // 4.id
     },
 
-    // 模式 指定当前的构建环境
+    // 模式 指定当前的构建环境 none production development
     // 默认是：production(线上，生产)
     mode:'development',
 
@@ -57,6 +57,7 @@ module.exports = {
 
 
     // Webpack 默认只⽀持.json 和 .js模块 不⽀持 不认识其他格式的模块
+    // loader：模块解析，模块转换器，⽤于把模块原内容按照需求转换成新内容。
     // 处理不认识的模块 当webpack处理到不认识的模块时，需要在webpack中的module处进⾏配置，当检测到是什么格式的模块，使⽤什么loader来处理。
     module : {
         rules:[

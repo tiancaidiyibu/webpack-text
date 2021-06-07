@@ -115,7 +115,7 @@ const  config = {
       // minChunks: 1,//打包⽣成的chunk⽂件最少有⼏个chunk引⽤了这个模块（就是最少被引用的次数，如果不被低于这个次数，就不分割）
       // maxAsyncRequests: 5,//最⼤异步请求数，默认5
       // maxInitialRequests: 3,//最⼤初始化请求书，⼊⼝⽂件同步请求，默认3
-      // automaticNameDelimiter: '-',//打包分割符号
+      // automaticNameDelimiter: '-',//打包出来文件名称中间的分割符号
       // name: true,//打包后的名称，除了布尔值，还可以接收⼀个函数function
       // cacheGroups: {//缓存组,可以分割成多个文件
       //   loadsh:{

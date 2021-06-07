@@ -1,4 +1,4 @@
-module.exports = function (source) {
+module.exports = function (source,sourcemap,ast) {
   //loader处理模块
   //多个loader是有顺序的
   //一定要有返回值

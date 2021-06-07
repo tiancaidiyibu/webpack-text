@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config ./webpack.config.dev.js",
     "build": "webpack --config ./webpack.config.pro.js",
-    "test:build": "cross-env NODE_ENV=test  webpack --env.production  --config ./webpack.config.test.js",
+    "test:build": "webpack --env.production  --config ./webpack.config.test.js",
+    "test:build1": "cross-env NODE_ENV=test  webpack  --config ./webpack.config.test.js",
     "test:dev": "webpack-dev-server  --config ./webpack.config.test.js"
   },
   "keywords": [],
